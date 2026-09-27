@@ -7,23 +7,21 @@ namespace AccesoDatos1.Models
     public class Prestamo : IPrestamoCalculable
     {  
         public int Id { get; set; }
-        public int FechaPrestamo { get; set; }
-        public int FechaDevolucionEstimada { get; set; }
-        public int? FechaDevolucionReal { get; set; }
-
-        public int DiasAtraso { get; set; }
-        public decimal CalcularMulta()
+        public DateTime FechaPrestamo{ get; set; }
+        public DateTime? FechaDevolucionReal { get; set; }
+        public DateTime FechaDevolucionEstimada { get; set; }
+        public decimal CalcularMultaDias(int diasAtraso)
         {
             decimal multa = 0;
-            if (DiasAtraso > 0)
+            if (diasAtraso > 0)
             {
-                multa = DiasAtraso * 2; // Ejemplo: $2 por cada día de atraso
+                multa = diasAtraso * 0.5m; 
             }
             return multa;
         }
         public int SocioId { get; set; }
         public Socio Socio { get; set; }
         public int LibroId { get; set; }
-        public Libro libro { get; set; }
+        public Libro Libro { get; set; }
     }
 }

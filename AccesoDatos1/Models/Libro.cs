@@ -8,18 +8,19 @@ namespace AccesoDatos1.Models
      public class Libro
     {
         public int Id { get; set; }
-        public string Titulo { get; set; }
-        public string Autor { get; set; }
-        private int CopiasDisponibles;
-        public int copiasDisponibles
+        public string Titulo { get; set; } = string.Empty;
+
+        public string Autor { get; set; } = string.Empty;
+        private int copiasDisponibles;
+        public int CopiasDisponibles
         {
             get { return copiasDisponibles; }
             set
             {
                 if (value < 0)
-                    Console.WriteLine("Las copias disponibles no pueden ser negativas.");
+                    throw new ArgumentException("Las copias disponibles no pueden ser negativas.");
                 else
-                    CopiasDisponibles = value;
+                    copiasDisponibles = value;
             }
         }
     }

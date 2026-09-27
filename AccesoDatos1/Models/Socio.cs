@@ -6,10 +6,10 @@ namespace AccesoDatos1.Models
 {
     public class Socio : Persona
     {
-        public int FechaAlta { get; set; }
+        public DateTime FechaAlta { get; set; }
         public override string Descripcion()
         {
-            return "Socio";
+            return $"Socio: {Nombre}, DNI: {Dni}, Fecha de Alta: {FechaAlta:yyyy-MM-dd}";
         }
     }
 }
